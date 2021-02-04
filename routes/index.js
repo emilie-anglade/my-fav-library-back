@@ -1,12 +1,9 @@
 // const thingsRoutes = require('./things');
-const monsters = require('./monsters')
-const elements = require('./elements')
-const ailments = require('./ailments')
-const locations = require('./locations')
+const books = require('./books')
+
 
 module.exports = (app) => {
-  app.use("/api/get", monsters)
-  app.use("/api/get", elements)
-  app.use("/api/get", ailments)
-  app.use("/api/get", locations)
+
+  // use forms route for url http://${DB_HOST}:${DB_PORT}/api/forms
+  app.use("/api/books", books)
 }
