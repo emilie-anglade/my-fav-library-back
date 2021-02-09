@@ -8,10 +8,8 @@ router.get("/", async (req, res) => {
   try {
       const getBooks = await connection.query(
         `SELECT 
-          *
-          FROM books`
+          b.idbooks, b.title, b.summary, b.image, CONCAT(a.firstname, ' ', a.lastname) AS author FROM books AS b JOIN author AS a ON a.idauthor = b.author_idauthor`
       )
-      console.log(getBooks)
       res.status(200).json(getBooks)
     }
     catch (error) {
@@ -21,3 +19,4 @@ router.get("/", async (req, res) => {
   });
   
   module.exports = router;
+
